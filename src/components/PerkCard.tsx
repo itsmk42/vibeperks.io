@@ -1,23 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Perk } from '@/lib/types';
-import { ExternalLink, Clock, Tag, DollarSign, CheckCircle } from 'lucide-react';
+import { ExternalLink, Clock, Tag, DollarSign, CheckCircle, ImageOff } from 'lucide-react';
 
 interface PerkCardProps {
   perk: Perk;
 }
 
 export const PerkCard: React.FC<PerkCardProps> = ({ perk }) => {
+  const [imgError, setImgError] = useState(false);
+  
+  // Extract domain for logo
+  const getDomain = (url: string) => {
+    try {
+      const hostname = new URL(url).hostname;
+      return hostname.replace('www.', '');
+    } catch {
+      return '';
+    }
+  };
+  
+  const domain = getDomain(perk.link);
+  const logoUrl = `https://logo.clearbit.com/${domain}?size=64`;
+
   return (
     <div className="group relative border border-gray-200 bg-white hover:border-black transition-colors duration-300 flex flex-col h-full overflow-hidden shadow-sm hover:shadow-md">
       {/* Card Header - Terminal Style */}
-      <div className="bg-gray-50 border-b border-gray-200 p-2 flex items-center justify-between group-hover:bg-gray-100 transition-colors">
-        <div className="flex items-center gap-2">
-          <span className="text-[10px] text-gray-500 font-bold">[{perk.company}]</span>
+      <div className="bg-gray-50 border-b border-gray-200 p-3 flex items-center justify-between group-hover:bg-gray-100 transition-colors">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 rounded bg-white border border-gray-200 flex items-center justify-center overflow-hidden flex-shrink-0">
+            {!imgError && domain ? (
+              <img 
+                src={logoUrl} 
+                alt={`${perk.company} logo`}
+                className="w-full h-full object-contain p-1"
+                onError={() => setImgError(true)}
+              />
+            ) : (
+              <span className="text-[10px] font-bold text-gray-400">{perk.company.slice(0, 2).toUpperCase()}</span>
+            )}
+          </div>
+          <span className="text-xs text-gray-700 font-bold truncate max-w-[120px]">{perk.company}</span>
         </div>
-        <div className="flex gap-1">
-          <div className="w-2 h-2 rounded-full bg-red-400"></div>
-          <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-          <div className="w-2 h-2 rounded-full bg-green-400"></div>
+        <div className="flex gap-1.5">
+          <div className="w-2 h-2 rounded-full bg-red-400/80"></div>
+          <div className="w-2 h-2 rounded-full bg-yellow-400/80"></div>
+          <div className="w-2 h-2 rounded-full bg-green-400/80"></div>
         </div>
       </div>
 
@@ -31,7 +58,6 @@ export const PerkCard: React.FC<PerkCardProps> = ({ perk }) => {
             <span className="bg-gray-100 text-gray-700 px-1 py-0.5 rounded border border-gray-200">
               {perk.type}
             </span>
-            <span>ID: {perk.id.padStart(4, '0')}</span>
           </div>
         </div>
 
