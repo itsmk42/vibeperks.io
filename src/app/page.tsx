@@ -99,9 +99,9 @@ export default function Home() {
                 <button className="bg-black hover:bg-gray-800 text-white font-bold py-3 px-6 border border-black transition-all shadow-md hover:shadow-lg text-sm">
                   ./start_claiming.sh
                 </button>
-                <button className="bg-transparent hover:bg-gray-100 text-black font-bold py-3 px-6 border border-gray-300 transition-all text-sm">
-                  man vibeperks
-                </button>
+                <a href="/vibetools" className="bg-transparent hover:bg-gray-100 text-black font-bold py-3 px-6 border border-gray-300 transition-all text-sm inline-flex items-center gap-2">
+                  <Cpu className="w-4 h-4" /> ./vibetools
+                </a>
               </div>
             </div>
 

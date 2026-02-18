@@ -1,0 +1,95 @@
+[
+  {
+    "name": "Trae AI",
+    "description": "An adaptive AI IDE that learns your workflow and provides agentic coding assistance.",
+    "free_tier_features": [
+      "Access to Claude 3.5 Sonnet & GPT-4o",
+      "Agentic capabilities (create files, run commands)",
+      "Full codebase indexing & understanding",
+      "Native Mac app experience"
+    ],
+    "limitations": "Currently in Free Preview with generous usage limits (pricing TBD).",
+    "price_model": "Free Preview",
+    "link": "https://www.trae.ai",
+    "tags": ["ide", "agent", "claude-3.5", "gpt-4o"]
+  },
+  {
+    "name": "Cursor",
+    "description": "A fork of VS Code with built-in AI chat and composer features.",
+    "free_tier_features": [
+      "Basic code completion (cursor-small)",
+      "Codebase indexing",
+      "2,000 completions/month"
+    ],
+    "limitations": "50 slow premium requests/month. No fast premium requests. Composer features restricted.",
+    "price_model": "Freemium",
+    "link": "https://cursor.sh",
+    "tags": ["ide", "vscode-fork", "chat"]
+  },
+  {
+    "name": "Codeium",
+    "description": "A free AI coding extension for all major IDEs.",
+    "free_tier_features": [
+      "Unlimited code autocomplete",
+      "Unlimited chat (base models)",
+      "Repo-level context awareness",
+      "Supports 70+ languages"
+    ],
+    "limitations": "Access to faster/smaller models. Advanced context features reserved for paid tiers.",
+    "price_model": "Free Forever (Individual)",
+    "link": "https://codeium.com",
+    "tags": ["extension", "unlimited", "multi-ide"]
+  },
+  {
+    "name": "Sourcegraph Cody",
+    "description": "AI coding assistant that uses search to understand your entire codebase.",
+    "free_tier_features": [
+      "Access to Claude 3.5 Sonnet, GPT-4o, Gemini 1.5 Pro",
+      "Context-aware chat & autocomplete",
+      "VS Code & JetBrains extensions"
+    ],
+    "limitations": "200 completions/month. Rate limits on premium models for chat.",
+    "price_model": "Freemium",
+    "link": "https://sourcegraph.com/cody",
+    "tags": ["extension", "context-aware", "multi-model"]
+  },
+  {
+    "name": "GitHub Copilot",
+    "description": "The industry-standard AI pair programmer from GitHub.",
+    "free_tier_features": [
+      "Access to GPT-4o & Claude 3.5 Sonnet",
+      "Code completion & Chat in VS Code",
+      "Free for Students & OSS Maintainers"
+    ],
+    "limitations": "2,000 completions/month. 50 chat messages/month. (Unless Student/OSS)",
+    "price_model": "Freemium / Free for Students",
+    "link": "https://github.com/features/copilot",
+    "tags": ["extension", "industry-standard", "github"]
+  },
+  {
+    "name": "Amazon Q Developer",
+    "description": "AWS's generative AI assistant for software development.",
+    "free_tier_features": [
+      "Real-time code suggestions",
+      "Chat capabilities in IDE",
+      "50 security scans/month",
+      "Reference tracking"
+    ],
+    "limitations": "Requires AWS Builder ID. Rate limits apply.",
+    "price_model": "Free (Individual)",
+    "link": "https://aws.amazon.com/q/developer/",
+    "tags": ["extension", "aws", "security"]
+  },
+  {
+    "name": "Tabnine",
+    "description": "AI assistant focusing on privacy and code security.",
+    "free_tier_features": [
+      "Short code completions (2-3 words)",
+      "Runs locally (privacy focused)"
+    ],
+    "limitations": "No whole-line completion. No chat. No context awareness.",
+    "price_model": "Freemium",
+    "link": "https://www.tabnine.com",
+    "tags": ["extension", "privacy", "local"]
+  }
+]
