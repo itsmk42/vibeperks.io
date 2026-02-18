@@ -197,6 +197,16 @@ export default function Home() {
             <div className="text-[10px] text-gray-500 uppercase">Last Update</div>
           </div>
         </div>
+
+        {/* Footer */}
+        <footer className="mt-16 py-8 border-t border-gray-200 text-center">
+          <p className="text-sm font-bold text-black mb-2">
+            created by a vibe coder to vibe coders
+          </p>
+          <p className="text-xs text-gray-500 italic">
+            "when everybody is super, nobody will be"
+          </p>
+        </footer>
       </main>
       
       {/* Background decoration */}
