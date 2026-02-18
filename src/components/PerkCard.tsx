@@ -1,43 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Perk } from '@/lib/types';
-import { ExternalLink, Clock, Tag, DollarSign, CheckCircle, ImageOff } from 'lucide-react';
+import { ExternalLink, Clock, DollarSign, CheckCircle } from 'lucide-react';
+import { CompanyLogo } from '@/components/CompanyLogo';
 
 interface PerkCardProps {
   perk: Perk;
 }
 
 export const PerkCard: React.FC<PerkCardProps> = ({ perk }) => {
-  const [imgError, setImgError] = useState(false);
-  
-  // Extract domain for logo
-  const getDomain = (url: string) => {
-    try {
-      const hostname = new URL(url).hostname;
-      return hostname.replace('www.', '');
-    } catch {
-      return '';
-    }
-  };
-  
-  const domain = getDomain(perk.link);
-  const logoUrl = `https://logo.clearbit.com/${domain}?size=64`;
-
   return (
     <div className="group relative border border-gray-200 bg-white hover:border-black transition-colors duration-300 flex flex-col h-full overflow-hidden shadow-sm hover:shadow-md">
       {/* Card Header - Terminal Style */}
       <div className="bg-gray-50 border-b border-gray-200 p-3 flex items-center justify-between group-hover:bg-gray-100 transition-colors">
         <div className="flex items-center gap-3">
           <div className="w-8 h-8 rounded bg-white border border-gray-200 flex items-center justify-center overflow-hidden flex-shrink-0">
-            {!imgError && domain ? (
-              <img 
-                src={logoUrl} 
-                alt={`${perk.company} logo`}
-                className="w-full h-full object-contain p-1"
-                onError={() => setImgError(true)}
-              />
-            ) : (
-              <span className="text-[10px] font-bold text-gray-400">{perk.company.slice(0, 2).toUpperCase()}</span>
-            )}
+            <CompanyLogo company={perk.company} size={20} />
           </div>
           <span className="text-xs text-gray-700 font-bold truncate max-w-[120px]">{perk.company}</span>
         </div>
@@ -82,20 +59,20 @@ export const PerkCard: React.FC<PerkCardProps> = ({ perk }) => {
             <span>{perk.expires}</span>
           </div>
         </div>
-        
+
         {/* Tags */}
         <div className="flex flex-wrap gap-1 mt-2">
-            {perk.tags.map(tag => (
-                <span key={tag} className="text-[10px] text-gray-500">#{tag}</span>
-            ))}
+          {perk.tags.map(tag => (
+            <span key={tag} className="text-[10px] text-gray-500">#{tag}</span>
+          ))}
         </div>
       </div>
 
       {/* Footer / Action */}
       <div className="p-3 border-t border-gray-200 bg-gray-50">
-        <a 
-          href={perk.link} 
-          target="_blank" 
+        <a
+          href={perk.link}
+          target="_blank"
           rel="noopener noreferrer"
           className="flex items-center justify-center gap-2 w-full bg-white hover:bg-black hover:text-white text-black border border-gray-300 py-2 px-4 text-xs font-bold transition-all duration-200 uppercase tracking-wider"
         >
